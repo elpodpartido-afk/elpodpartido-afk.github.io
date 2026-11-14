@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conectando · El PodPartido</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header><div class="in"><span class="marca">EL POD<span>PARTIDO</span></span></div></header>
+<main>
+  <h1>Conectando la cuenta…</h1>
+  <p id="msg">Te estamos devolviendo al programa de El PodPartido en esta computadora.</p>
+</main>
+<script>
+  // Retorno del login: pasa los datos al programa local, que escucha en esta misma computadora.
+  var q = window.location.search;
+  if (q.indexOf('code=') !== -1 || q.indexOf('error=') !== -1) {
+    window.location.replace('http://127.0.0.1:8720/callback' + q);
+  } else {
+    document.getElementById('msg').textContent = 'Esta página solo se usa al conectar una cuenta. No hay nada que hacer acá.';
+  }
+</script>
+</body>
+</html>
